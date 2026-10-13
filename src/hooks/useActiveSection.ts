@@ -1,33 +1,63 @@
 import { useEffect, useState } from 'react'
 
-export function useActiveSection(ids: string[]) {
-  const [activeId, setActiveId] = useState(ids[0] ?? '')
+/** Maps page section ids to nav item ids */
+const SECTION_TO_NAV: Record<string, string> = {
+  cover: 'cover',
+  prologue: 'story',
+  story: 'story',
+  'chapter-1': 'story',
+  'chapter-2': 'story',
+  'chapter-3': 'story',
+  'chapter-4': 'story',
+  'chapter-5': 'story',
+  'chapter-6': 'story',
+  epilogue: 'story',
+  moments: 'moments',
+  videos: 'videos',
+  voices: 'voices',
+  letters: 'letters',
+  finale: 'letters',
+}
+
+const OBSERVED_IDS = Object.keys(SECTION_TO_NAV)
+
+/**
+ * Scroll-spy: picks the last section whose top has crossed the header line,
+ * then maps it to a nav item. Chapters count as «История».
+ */
+export function useActiveSection(navIds: string[]) {
+  const [activeId, setActiveId] = useState(navIds[0] ?? 'cover')
 
   useEffect(() => {
-    const elements = ids
+    const elements = OBSERVED_IDS
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => Boolean(el))
 
     if (!elements.length) return
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
-        if (visible[0]?.target.id) {
-          setActiveId(visible[0].target.id)
-        }
-      },
-      {
-        rootMargin: '-20% 0px -55% 0px',
-        threshold: [0.08, 0.25, 0.5],
-      },
-    )
+    const update = () => {
+      const marker = window.innerHeight * 0.28
+      let currentNav = navIds[0] ?? 'cover'
 
-    elements.forEach((el) => observer.observe(el))
-    return () => observer.disconnect()
-  }, [ids])
+      for (const el of elements) {
+        const top = el.getBoundingClientRect().top
+        if (top <= marker) {
+          const nav = SECTION_TO_NAV[el.id]
+          if (nav && navIds.includes(nav)) currentNav = nav
+        }
+      }
+
+      setActiveId((prev) => (prev === currentNav ? prev : currentNav))
+    }
+
+    update()
+    window.addEventListener('scroll', update, { passive: true })
+    window.addEventListener('resize', update)
+    return () => {
+      window.removeEventListener('scroll', update)
+      window.removeEventListener('resize', update)
+    }
+  }, [navIds])
 
   return activeId
 }

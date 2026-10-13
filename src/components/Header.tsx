@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import type { NavItem } from '../data/types'
 import { useActiveSection } from '../hooks/useActiveSection'
@@ -11,7 +11,7 @@ interface HeaderProps {
 export function Header({ items, brand }: HeaderProps) {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const ids = items.map((item) => item.id)
+  const ids = useMemo(() => items.map((item) => item.id), [items])
   const active = useActiveSection(ids)
 
   useEffect(() => {
@@ -29,7 +29,9 @@ export function Header({ items, brand }: HeaderProps) {
   const goTo = (id: string) => {
     setOpen(false)
     const el = document.getElementById(id)
-    el?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    if (!el) return
+    const top = el.getBoundingClientRect().top + window.scrollY - 72
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' })
   }
 
   return (
