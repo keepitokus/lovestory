@@ -35,8 +35,19 @@ export function Header({ items, brand }: HeaderProps) {
   return (
     <header className={`site-header ${scrolled ? 'is-scrolled' : ''} ${open ? 'is-open' : ''}`}>
       <div className="site-header__inner">
-        <button type="button" className="site-brand" onClick={() => goTo('cover')}>
-          {brand}
+        <button
+          type="button"
+          className="site-brand"
+          onClick={() => goTo('cover')}
+          aria-label={brand}
+        >
+          <img
+            className="site-brand__logo"
+            src={`${import.meta.env.BASE_URL}ya-zdes-logo.jpg`}
+            alt=""
+            width={48}
+            height={48}
+          />
         </button>
 
         <button

@@ -166,17 +166,32 @@ button {
 }
 
 .site-brand {
-  font-family: var(--font-display);
-  font-size: 1.35rem;
-  letter-spacing: 0.04em;
-  color: var(--color-rose-surface);
-  text-shadow: 0 1px 18px rgb(48 39 42 / 0.35);
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  line-height: 0;
 }
 
-.site-header.is-scrolled .site-brand,
-.site-header.is-open .site-brand {
-  color: var(--color-rose-burgundy);
-  text-shadow: none;
+.site-brand__logo {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.75rem;
+  object-fit: cover;
+  box-shadow: 0 2px 14px rgb(48 39 42 / 0.28);
+  flex-shrink: 0;
+}
+
+.site-header.is-scrolled .site-brand__logo,
+.site-header.is-open .site-brand__logo {
+  box-shadow: 0 2px 10px rgb(48 39 42 / 0.14);
+}
+
+@media (min-width: 900px) {
+  .site-brand__logo {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.85rem;
+  }
 }
 
 .menu-toggle {
