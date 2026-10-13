@@ -3,10 +3,6 @@ import type { BookData } from './types'
 const media = (file: string) =>
   `${import.meta.env.BASE_URL}media/${file}`.replace(/([^:]\/)\/+/g, '$1')
 
-/**
- * Media map — each file is referenced once in the book experience
- * (timeline thumb may share the chapter hero intentionally).
- */
 export const book: BookData = {
   meta: {
     project: 'Я здесь',
@@ -60,7 +56,7 @@ export const book: BookData = {
       date: 'Октябрь 2021',
       title: 'Случайная встреча',
       description: 'Дождливый вечер, одно кафе и последний свободный столик.',
-      image: media('meeting-rain.jpg'),
+      image: media('meeting.jpg'),
       chapterId: 'chapter-1',
     },
     {
@@ -76,7 +72,7 @@ export const book: BookData = {
       date: '2022',
       title: 'Маленькие традиции',
       description: 'Завтраки, записки и фильмы, которые стали «нашими».',
-      image: media('traditions-breakfast.jpg'),
+      image: media('together-01.jpg'),
       chapterId: 'chapter-3',
     },
     {
@@ -92,7 +88,7 @@ export const book: BookData = {
       date: '2024',
       title: 'Дом — это ты',
       description: 'Общая квартира, первые большие решения и тихая забота.',
-      image: media('home-light.jpg'),
+      image: media('home.jpg'),
       chapterId: 'chapter-5',
     },
     {
@@ -100,7 +96,7 @@ export const book: BookData = {
       date: 'Лето 2025',
       title: 'Ты выйдешь за меня?',
       description: 'Закат, дрожащие руки и самый важный вопрос.',
-      image: media('proposal-sunset.jpg'),
+      image: media('proposal.jpg'),
       chapterId: 'chapter-6',
     },
     {
@@ -108,7 +104,7 @@ export const book: BookData = {
       date: '2026',
       title: 'Продолжение следует',
       description: 'Они пишут историю дальше — каждый день.',
-      image: media('epilogue-horizon.jpg'),
+      image: media('finale.jpg'),
       chapterId: 'epilogue',
     },
   ],
@@ -157,7 +153,7 @@ export const book: BookData = {
       period: 'Ноябрь 2021',
       place: 'Вечерняя Москва',
       layout: 'split',
-      heroImage: media('date-night.jpg'),
+      heroImage: media('first-date.jpg'),
       lead:
         'Через три недели они снова встретились — уже намеренно. Без оправданий про «случайно оказался рядом».',
       accentNote: 'Мы договорились встретиться на час. А проговорили шесть.',
@@ -168,11 +164,7 @@ export const book: BookData = {
         },
         {
           type: 'images',
-          images: [
-            media('moscow.jpg'),
-            media('date-coffee.jpg'),
-            media('date-walk.jpg'),
-          ],
+          images: [media('moscow.jpg'), media('first-date.jpg'), media('gallery-02.jpg')],
         },
         {
           type: 'text',
@@ -194,7 +186,7 @@ export const book: BookData = {
       title: 'Маленькие традиции',
       period: '2022',
       layout: 'quote-led',
-      heroImage: media('traditions-walk.jpg'),
+      heroImage: media('together-01.jpg'),
       lead:
         'Любовь не всегда приходит с фанфарами. Иногда она входит на кухню в тапочках и ставит чайник.',
       accentNote: 'Год, когда «ты» стало «мы».',
@@ -210,10 +202,10 @@ export const book: BookData = {
         {
           type: 'images',
           images: [
-            media('traditions-notes.jpg'),
-            media('traditions-film.jpg'),
-            media('home-kitchen.jpg'),
+            media('together-01.jpg'),
+            media('together-02.jpg'),
             media('together-03.jpg'),
+            media('home-02.jpg'),
           ],
         },
         {
@@ -233,7 +225,7 @@ export const book: BookData = {
       period: 'Лето 2023',
       place: 'Италия',
       layout: 'collage',
-      heroImage: media('travel-02.jpg'),
+      heroImage: media('travel-01.jpg'),
       lead:
         'Они давно обещали себе «когда-нибудь». Летом 2023 «когда-нибудь» стало билетами, чемоданом и картой Италии с тремя отмеченными точками.',
       accentNote: 'Рим. Флоренция. Амальфи.',
@@ -245,12 +237,12 @@ export const book: BookData = {
         {
           type: 'images',
           images: [
-            media('rome.jpg'),
-            media('florence.jpg'),
-            media('amalfi.jpg'),
-            media('venice.jpg'),
+            media('travel-01.jpg'),
+            media('travel-02.jpg'),
             media('travel-03.jpg'),
             media('travel-04.jpg'),
+            media('amalfi.jpg'),
+            media('florence.jpg'),
           ],
         },
         {
@@ -281,7 +273,7 @@ export const book: BookData = {
         },
         {
           type: 'image',
-          image: media('home-evening.jpg'),
+          image: media('home.jpg'),
           alt: 'Уютный дом пары',
           caption: 'Квартира, где каждое утро начиналось вместе',
         },
@@ -312,7 +304,7 @@ export const book: BookData = {
         },
         {
           type: 'image',
-          image: media('proposal-ring.jpg'),
+          image: media('proposal.jpg'),
           alt: 'Предложение на закате',
           caption: 'Тот самый вечер',
         },
@@ -351,7 +343,7 @@ export const book: BookData = {
         },
         {
           type: 'image',
-          image: media('together-01.jpg'),
+          image: media('finale.jpg'),
           alt: 'Александр и София смотрят вперёд',
           caption: '2026',
         },
@@ -365,160 +357,160 @@ export const book: BookData = {
     photos: [
       {
         id: 'g1',
-        src: media('gallery-01.jpg'),
-        alt: 'Знакомство',
+        src: media('meeting.jpg'),
+        alt: 'Вечер знакомства',
         caption: 'Тот дождливый октябрь',
         date: 'Октябрь 2021',
         theme: 'meeting',
       },
       {
         id: 'g2',
-        src: media('gallery-02.jpg'),
-        alt: 'Ужин вдвоём',
+        src: media('cafe.jpg'),
+        alt: 'Кафе, где они встретились',
         caption: 'Последний свободный столик',
         date: 'Октябрь 2021',
         theme: 'meeting',
       },
       {
         id: 'g3',
-        src: media('gallery-03.jpg'),
-        alt: 'Сердце из рук',
+        src: media('first-date.jpg'),
+        alt: 'Первое свидание',
         caption: 'Шесть часов вместо одного',
         date: 'Ноябрь 2021',
         theme: 'dates',
       },
       {
         id: 'g4',
-        src: media('gallery-04.jpg'),
-        alt: 'Огни города',
+        src: media('moscow.jpg'),
+        alt: 'Вечерняя Москва',
         caption: 'Прогулка без маршрута',
         date: 'Ноябрь 2021',
         theme: 'dates',
       },
       {
         id: 'g5',
-        src: media('gallery-05.jpg'),
-        alt: 'Свадебный букет',
+        src: media('gallery-02.jpg'),
+        alt: 'Пара на свидании',
         caption: 'Смех до поздней ночи',
         date: 'Декабрь 2021',
         theme: 'dates',
       },
       {
         id: 'g6',
-        src: media('gallery-06.jpg'),
-        alt: 'Вместе на природе',
+        src: media('together-01.jpg'),
+        alt: 'Вместе каждый день',
         caption: 'Наши субботние утра',
         date: 'Весна 2022',
         theme: 'everyday',
       },
       {
         id: 'g7',
-        src: media('gallery-07.jpg'),
-        alt: 'Портрет',
+        src: media('together-02.jpg'),
+        alt: 'Повседневная нежность',
         caption: 'Записки на холодильнике',
         date: 'Лето 2022',
         theme: 'everyday',
       },
       {
         id: 'g8',
-        src: media('gallery-08.jpg'),
-        alt: 'Мода и свет',
+        src: media('together-03.jpg'),
+        alt: 'Домашний вечер',
         caption: 'Любимый фильм в третий раз',
         date: 'Осень 2022',
         theme: 'everyday',
       },
       {
         id: 'g9',
-        src: media('gallery-09.jpg'),
-        alt: 'Завтрак',
+        src: media('home-02.jpg'),
+        alt: 'Кухня и свет',
         caption: 'Чайник, который знает нас',
         date: '2022',
         theme: 'everyday',
       },
       {
         id: 'g10',
-        src: media('gallery-10.jpg'),
-        alt: 'Греция, море',
+        src: media('travel-01.jpg'),
+        alt: 'Италия, путешествие',
         caption: 'Первое большое «куда-нибудь вдвоём»',
         date: 'Лето 2023',
         theme: 'travel',
       },
       {
         id: 'g11',
-        src: media('gallery-11.jpg'),
-        alt: 'Венеция',
+        src: media('travel-02.jpg'),
+        alt: 'Улочки Италии',
         caption: 'Флоренция в полдень',
         date: 'Лето 2023',
         theme: 'travel',
       },
       {
         id: 'g12',
-        src: media('gallery-12.jpg'),
-        alt: 'Чинкве-Терре',
+        src: media('travel-03.jpg'),
+        alt: 'Рим',
         caption: 'Площадь, которой не было в гиде',
         date: 'Лето 2023',
         theme: 'travel',
       },
       {
         id: 'g13',
-        src: media('gallery-13.jpg'),
-        alt: 'Амальфи',
+        src: media('travel-04.jpg'),
+        alt: 'Побережье',
         caption: 'Свет Амальфи',
         date: 'Лето 2023',
         theme: 'travel',
       },
       {
         id: 'g14',
-        src: media('gallery-14.jpg'),
-        alt: 'Каналы',
+        src: media('amalfi.jpg'),
+        alt: 'Амальфи',
         caption: 'Море говорило за нас',
         date: 'Лето 2023',
         theme: 'travel',
       },
       {
         id: 'g15',
-        src: media('gallery-15.jpg'),
-        alt: 'Общий стол',
+        src: media('home.jpg'),
+        alt: 'Общий дом',
         caption: 'Окна на запад',
         date: '2024',
         theme: 'everyday',
       },
       {
         id: 'g16',
-        src: media('gallery-16.jpg'),
-        alt: 'Портрет дня',
+        src: media('gallery-01.jpg'),
+        alt: 'Счастливый день',
         caption: 'Обычный день, который хочется сохранить',
         date: '2024',
         theme: 'everyday',
       },
       {
         id: 'g17',
-        src: media('gallery-17.jpg'),
-        alt: 'Свадебный свет',
+        src: media('proposal.jpg'),
+        alt: 'Предложение',
         caption: 'Тот самый закат',
         date: 'Лето 2025',
         theme: 'proposal',
       },
       {
         id: 'g18',
-        src: media('gallery-18.jpg'),
-        alt: 'После «да»',
+        src: media('finale.jpg'),
+        alt: 'После предложения',
         caption: 'Да — и всё, что после него',
         date: 'Лето 2025',
         theme: 'proposal',
       },
       {
         id: 'g19',
-        src: media('gallery-19.jpg'),
-        alt: 'Взгляд',
+        src: media('gallery-03.jpg'),
+        alt: 'Портрет пары',
         caption: 'Смотрим в одну сторону',
         date: '2025',
         theme: 'proposal',
       },
       {
         id: 'g20',
-        src: media('gallery-20.jpg'),
-        alt: 'Тишина рядом',
+        src: media('gallery-04.jpg'),
+        alt: 'Близость',
         caption: 'Тишина, в которой всё понятно',
         date: '2026',
         theme: 'everyday',
@@ -567,6 +559,7 @@ export const book: BookData = {
         description:
           'Он рассказывает, как час превратился в шесть — и почему до сих пор помнит её смех у набережной.',
         durationHint: '0:42',
+        // src: media('voice-first-date.mp3'),
       },
       {
         id: 'a2',
@@ -575,6 +568,7 @@ export const book: BookData = {
         description:
           'О спокойствии, щетине, утреннем кофе и том, как он уступает столики незнакомым девушкам под дождём.',
         durationHint: '0:51',
+        // src: media('voice-why-i-love-you.mp3'),
       },
     ],
   },
@@ -615,7 +609,7 @@ export const book: BookData = {
   },
 
   finale: {
-    image: media('home-02.jpg'),
+    image: media('finale.jpg'),
     quote:
       'И если бы мне предложили прожить эту жизнь заново, я бы снова искал тебя.',
     names: 'Александр & София',
@@ -629,9 +623,9 @@ export const book: BookData = {
 
   mediaNotes: [
     'Демонстрационные изображения — royalty-free кадры с Unsplash, сохранённые локально в /public/media/.',
-    'Галерея использует отдельный набор gallery-*.jpg; главы — тематические кадры без пересечения с галереей.',
-    'Для клиентской книги замените файлы на единую фотосессию одной пары.',
-    'Видео/аудио: добавьте локальные файлы и укажите src в данных книги.',
+    'Для клиентской книги замените файлы на единую фотосессию одной пары (hero, meeting, first-date, together-*, travel-*, home, proposal, finale, gallery-*).',
+    'Видео: добавьте MP4/WebM и укажите src в book.videos.items.',
+    'Аудио: добавьте файлы и раскомментируйте src в book.voices.items.',
   ],
 }
 
